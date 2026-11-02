@@ -1,0 +1,22 @@
+id = "herdr-usage"
+name = "Usage"
+version = "0.1.0"
+min_herdr_version = "0.9.5"
+description = "Claude and Codex plan limits and CPU, RAM and agents for every machine, in a popup"
+platforms = ["linux", "macos"]
+
+[[build]]
+command = ["cargo", "build", "--release", "--locked"]
+
+[[actions]]
+id = "open"
+title = "Show usage"
+command = ["herdr", "plugin", "pane", "open", "--plugin", "herdr-usage", "--entrypoint", "usage"]
+
+[[panes]]
+id = "usage"
+title = "Usage"
+placement = "popup"
+width = 100
+height = 24
+command = ["target/release/herdr-usage"]
